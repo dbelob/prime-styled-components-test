@@ -4,3 +4,12 @@
 <div style="margin: 1rem">
   <input type="text" pInputText [(ngModel)]="inputTextValue" placeholder="Enter text" />
 </div>
+<div style="margin: 1rem">
+  <p-select
+    [options]="languages"
+    [(ngModel)]="selectedLanguage"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a language"
+  />
+</div>
