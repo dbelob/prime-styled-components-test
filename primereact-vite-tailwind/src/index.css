@@ -5,7 +5,11 @@ html {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+body {
+  margin: 0.5rem;
+}
+
 h1 {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: bold;
 }
