@@ -22,13 +22,13 @@ export default function App() {
     return (
         <>
             <h1>PrimeReact (with Tailwind)</h1>
-            <div style={{ margin: '1rem 0 1rem 0' }}>
+            <div className='my-4'>
                 <Button>Check</Button>
             </div>
-            <div style={{ margin: '1rem 0 1rem 0' }}>
+            <div className='my-4'>
                 <InputText placeholder='Enter text' />
             </div>
-            <div style={{ margin: '1rem 0 1rem 0' }}>
+            <div className='my-4'>
                 <Select.Root
                     value={language}
                     onValueChange={(e: SelectValueChangeEvent) =>
