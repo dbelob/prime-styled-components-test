@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Button } from '@primereact/ui/button';
-import { ChevronDown } from '@primeicons/react/chevron-down';
-import { InputText } from '@primereact/ui/inputtext';
-import { Select, type SelectValueChangeEvent } from '@primereact/ui/select';
+import { Button } from '@/components/ui/button';
+import { InputText } from '@/components/ui/inputtext';
+import { Select, SelectList, SelectOption, SelectPopup, SelectPortal, SelectPositioner, SelectTrigger, SelectValue } from '@/components/ui/select';
+import type { SelectValueChangeEvent } from 'primereact/select';
 import './App.css';
 
 const languages = [
+    { label: 'Select your language', value: '' },
     { label: 'English', value: 'en' },
     { label: 'Deutsch', value: 'de' },
     { label: 'Español', value: 'es' },
@@ -13,7 +14,7 @@ const languages = [
     { label: 'Italiano', value: 'it' },
     { label: 'Türkçe', value: 'tr' },
     { label: '日本語', value: 'ja' },
-    { label: '中文', value: 'zh' },
+    { label: '中文', value: 'zh' }
 ];
 
 export default function App() {
@@ -26,32 +27,34 @@ export default function App() {
                 <Button>Check</Button>
             </div>
             <div className='my-4'>
-                <InputText placeholder='Enter text' />
+                <InputText placeholder='Enter text' className={'w-auto'}/>
             </div>
             <div className='my-4'>
-                <Select.Root
+                <Select
                     value={language}
-                    onValueChange={(e: SelectValueChangeEvent) =>
-                        setLanguage(e.value as string)
-                    }
+                    onValueChange={(e: SelectValueChangeEvent) => setLanguage(e.value as string)}
                     options={languages}
-                    optionLabel='label'
-                    optionValue='value'
+                    optionLabel="label"
+                    optionValue="value"
+                    className="md:w-56"
                 >
-                    <Select.Trigger>
-                        <Select.Value placeholder='Select a language' />
-                        <Select.Indicator>
-                            <ChevronDown />
-                        </Select.Indicator>
-                    </Select.Trigger>
-                    <Select.Portal>
-                        <Select.Positioner>
-                            <Select.Popup>
-                                <Select.List />
-                            </Select.Popup>
-                        </Select.Positioner>
-                    </Select.Portal>
-                </Select.Root>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Select a language" />
+                    </SelectTrigger>
+                    <SelectPortal>
+                        <SelectPositioner>
+                            <SelectPopup>
+                                <SelectList>
+                                    {languages.map((language, index) => (
+                                        <SelectOption key={index} index={index}>
+                                            {language.label}
+                                        </SelectOption>
+                                    ))}
+                                </SelectList>
+                            </SelectPopup>
+                        </SelectPositioner>
+                    </SelectPortal>
+                </Select>
             </div>
         </>
     );
