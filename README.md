@@ -4,7 +4,7 @@
 |---|---------------|-----------|---|------|
 | [primeng](./primeng) | PrimeNG       |           | Styled | 4200 |
 | [primeng-tailwind](./primeng-tailwind) | PrimeNG       |           | Tailwind  | 4201 |
-| [primeng-tailwind](./primeng-tailwind) | PrimeReact    | Vite      | Styled    | 5173 |
+| [primereact-vite](./primereact-vite) | PrimeReact    | Vite      | Styled    | 5173 |
 | [primereact-vite-tailwind](./primereact-vite-tailwind) | PrimeReact    | Vite      | Tailwind  | 5174 |
 
 ## Getting started
