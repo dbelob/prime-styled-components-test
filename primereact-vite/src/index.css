@@ -9,3 +9,39 @@ h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.not-data-fullscreen\:h-150\!:not([data-fullscreen]) {
+    height: 37.5rem !important;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.gap-0\.5 {
+    gap: 0.125rem;
+}
+
+:where(.group)[data-fullscreen] .group-data-fullscreen\:hidden\! {
+  display: none !important;
+}
+
+.hidden\! {
+  display: none !important;
+}
+
+:where(.group)[data-fullscreen] .group-data-fullscreen\:block\! {
+  display: block !important;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.object-cover {
+    object-fit: cover;
+}
