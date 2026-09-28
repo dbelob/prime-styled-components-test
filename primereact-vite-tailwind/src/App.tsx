@@ -50,7 +50,6 @@ export default function App() {
                     options={languages}
                     optionLabel="label"
                     optionValue="value"
-                    className="md:w-56"
                 >
                     <SelectTrigger>
                         <SelectValue placeholder="Select a language" />
