@@ -15,6 +15,7 @@
   />
 </div>
 <div>
+  <h2>Gallery (Toolbar, Thumbnails)</h2>
   <p-gallery class="not-data-fullscreen:h-150!">
     <p-gallery-backdrop></p-gallery-backdrop>
     <button pGalleryPrev>
@@ -69,4 +70,48 @@
       </p-gallery-thumbnail>
     </p-gallery-footer>
   </p-gallery>
+</div>
+<div>
+  <h2>Gallery (Single): Click Me</h2>
+  <div class="flex justify-center">
+    <div class="w-80 aspect-3/2 cursor-pointer hover:opacity-75 transition-opacity" (click)="open.set(true)">
+      <img [src]="image" alt="image" class="w-full h-full object-cover rounded-lg" />
+    </div>
+    @if (open()) {
+    <p-gallery [fullscreen]="true" (onFullscreenChange)="open.set($event)">
+      <p-gallery-backdrop></p-gallery-backdrop>
+      <p-gallery-header class="justify-end gap-0.5">
+        <button pGalleryRotateLeft>
+          <svg data-p-icon="replay"></svg>
+        </button>
+        <button pGalleryRotateRight>
+          <svg data-p-icon="refresh"></svg>
+        </button>
+        <button pGalleryZoomIn>
+          <svg data-p-icon="search-plus"></svg>
+        </button>
+        <button pGalleryZoomOut>
+          <svg data-p-icon="search-minus"></svg>
+        </button>
+        <button pGalleryFlipX>
+          <svg data-p-icon="arrows-h"></svg>
+        </button>
+        <button pGalleryFlipY>
+          <svg data-p-icon="arrows-v"></svg>
+        </button>
+        <button pGalleryDownload>
+          <svg data-p-icon="download"></svg>
+        </button>
+        <button class="p-gallery-action" (click)="open.set(false)">
+          <svg data-p-icon="times"></svg>
+        </button>
+      </p-gallery-header>
+      <p-gallery-content>
+        <p-gallery-item>
+          <img [src]="image" alt="image" />
+        </p-gallery-item>
+      </p-gallery-content>
+    </p-gallery>
+    }
+  </div>
 </div>

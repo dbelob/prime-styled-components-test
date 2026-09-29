@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonDirective } from 'primeng/button';
 import { GalleryModule } from 'primeng/gallery';
@@ -16,6 +16,7 @@ import { ArrowsV } from '@primeicons/angular/arrows-v';
 import { Download } from '@primeicons/angular/download';
 import { ArrowUpRightAndArrowDownLeftFromCenter } from '@primeicons/angular/arrow-up-right-and-arrow-down-left-from-center';
 import { ArrowDownLeftAndArrowUpRightToCenter } from '@primeicons/angular/arrow-down-left-and-arrow-up-right-to-center';
+import { Times } from '@primeicons/angular/times';
 
 interface Language {
   label: string;
@@ -25,7 +26,7 @@ interface Language {
 @Component({
   imports: [ButtonDirective, FormsModule, GalleryModule, InputTextModule, SelectModule,
             ChevronLeft, ChevronRight, Replay, Refresh, SearchPlus, SearchMinus, ArrowsH, ArrowsV, Download,
-            ArrowUpRightAndArrowDownLeftFromCenter, ArrowDownLeftAndArrowUpRightToCenter],
+            ArrowUpRightAndArrowDownLeftFromCenter, ArrowDownLeftAndArrowUpRightToCenter, Times],
   selector: 'app-component-demo',
   styleUrl: './component-demo.css',
   templateUrl: './component-demo.html',
@@ -78,4 +79,6 @@ export class ComponentDemo {
     [64, 1300, 1300]
   ];
   images = this.photos.map(([id, w, h]) => `https://picsum.photos/id/${id}/${w}/${h}`);
+  image: string = 'https://picsum.photos/id/10/1200/800';
+  open = signal(false);
 }
