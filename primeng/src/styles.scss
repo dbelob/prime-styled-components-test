@@ -14,8 +14,16 @@ h1 {
     height: 37.5rem !important;
 }
 
+.flex {
+    display: flex;
+}
+
 .justify-end {
     justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
 }
 
 .gap-0\.5 {
@@ -44,4 +52,32 @@ h1 {
 
 .object-cover {
     object-fit: cover;
+}
+
+.w-80 {
+    width: 20rem;
+}
+
+.aspect-\[3\/2\] {
+    aspect-ratio: 3 / 2;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+@media(hover: hover) {
+    .hover\:opacity-75:hover {
+        opacity: 75%;
+    }
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
 }
