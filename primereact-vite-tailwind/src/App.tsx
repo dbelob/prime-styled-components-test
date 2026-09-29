@@ -9,7 +9,8 @@ import {
     Download,
     Replay,
     SearchMinus,
-    SearchPlus
+    SearchPlus,
+    Times
 } from '@primeicons/react';
 import { Button } from '@/components/ui/button';
 import { Gallery } from '@primereact/ui/gallery';
@@ -33,6 +34,7 @@ const languages = [
 
 export default function App() {
     const [language, setLanguage] = React.useState<string>('');
+    const [open, setOpen] = React.useState<boolean>(false);
 
     return (
         <>
@@ -41,7 +43,7 @@ export default function App() {
                 <Button>Check</Button>
             </div>
             <div className='my-4'>
-                <InputText placeholder='Enter text' className={'w-auto'}/>
+                <InputText placeholder='Enter text' className={'w-auto'} />
             </div>
             <div className='my-4'>
                 <Select
@@ -70,6 +72,7 @@ export default function App() {
                 </Select>
             </div>
             <div>
+                <h2>Gallery (Toolbar, Thumbnails)</h2>
                 <Gallery.Root className="not-data-fullscreen:h-150!">
                     <Gallery.Backdrop />
                     <Gallery.Prev>
@@ -125,6 +128,50 @@ export default function App() {
                     </Gallery.Footer>
                 </Gallery.Root>
             </div>
+            <div>
+                <h2>Gallery (Single): Click Me</h2>
+                <div className="flex justify-center">
+                    <div className="w-80 aspect-[3/2] cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setOpen(true)}>
+                        <img src={image} alt="image" className="w-full h-full object-cover rounded-lg" />
+                    </div>
+                    {open && (
+                        <Gallery.Root fullscreen onFullscreenChange={setOpen}>
+                            <Gallery.Backdrop />
+                            <Gallery.Header className="justify-end gap-0.5">
+                                <Gallery.RotateLeft>
+                                    <Replay />
+                                </Gallery.RotateLeft>
+                                <Gallery.RotateRight>
+                                    <Refresh />
+                                </Gallery.RotateRight>
+                                <Gallery.ZoomIn>
+                                    <SearchPlus />
+                                </Gallery.ZoomIn>
+                                <Gallery.ZoomOut>
+                                    <SearchMinus />
+                                </Gallery.ZoomOut>
+                                <Gallery.FlipX>
+                                    <ArrowsH />
+                                </Gallery.FlipX>
+                                <Gallery.FlipY>
+                                    <ArrowsV />
+                                </Gallery.FlipY>
+                                <Gallery.Download>
+                                    <Download />
+                                </Gallery.Download>
+                                <button className="p-gallery-action" onClick={() => setOpen(false)}>
+                                    <Times />
+                                </button>
+                            </Gallery.Header>
+                            <Gallery.Content>
+                                <Gallery.Item>
+                                    <img src={image} alt="image" />
+                                </Gallery.Item>
+                            </Gallery.Content>
+                        </Gallery.Root>
+                    )}
+                </div>
+            </div>
         </>
     );
 }
@@ -163,3 +210,4 @@ const photos: [number, number, number][] = [
 ];
 
 const images = photos.map(([id, w, h]) => `https://picsum.photos/id/${id}/${w}/${h}`);
+const image = 'https://picsum.photos/id/10/1200/800';
